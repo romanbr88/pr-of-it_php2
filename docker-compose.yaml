@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres:12
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      TZ: Europe/Moscow
+      POSTGRES_PASSWORD: profit
+      POSTGRES_USER: profit
+      POSTGRES_DB: profit
+    ports:
+      - 5432:5432
+
+volumes:
+  pgdata:
