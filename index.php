@@ -1,17 +1,11 @@
 <?php
 
-use Models\Product;
-use Models\User;
+use Models\Article;
 
 spl_autoload_register(function ($class) {
     require __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
 });
 
-$data = Product::findAll();
-var_dump($data);
+$data = Article::getLastNews();
 
-$data = User::findAll();
-var_dump($data);
-
-$data = Product::findById(3);
-var_dump($data);
+require __DIR__ . '/Views/Main.php';
