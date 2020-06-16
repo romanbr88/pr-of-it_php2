@@ -17,10 +17,10 @@ class Db
         return $sth->fetchAll(PDO::FETCH_CLASS, $class);
     }
 
-    public function execute(string $sql): bool
+    public function execute(string $sql, array $params = []): bool
     {
         $sth = $this->dbh->prepare($sql);
-        return $sth->execute();
+        return $sth->execute($params);
     }
 
 }
