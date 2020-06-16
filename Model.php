@@ -20,7 +20,7 @@ abstract class Model
         $db = new \Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id = :id LIMIT 1';
         $result = $db->query($sql, static::class, [':id' => $id]);
-        return empty($result) ? false : $result;
+        return empty($result) ? false : $result[0];
     }
 
 }
