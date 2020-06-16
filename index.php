@@ -12,3 +12,6 @@ var_dump($data);
 
 $data = User::findAll();
 var_dump($data);
+
+$data = Product::findById(3);
+var_dump($data);
