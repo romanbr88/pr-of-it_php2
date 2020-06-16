@@ -9,7 +9,7 @@ class User extends \Model
 
     protected const TABLE = 'users';
 
-    public string $emails;
+    public string $email;
     public string $phone;
 
 }
