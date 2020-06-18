@@ -1,5 +1,7 @@
 <?php
 
+use App\Config;
+
 class Db
 {
 
@@ -7,7 +9,12 @@ class Db
 
     public function __construct()
     {
-        $this->dbh = new \PDO('pgsql:host=localhost;dbname=profit', 'postgres', '');
+        $config = new Config();
+        $this->dbh = new \PDO(
+            'pgsql:host=' . $config->data['db']['host'] . ';dbname=' . $config->data['db']['dbname'] . '',
+            $config->data['db']['username'],
+            $config->data['db']['passwd']
+        );
     }
 
     public function query(string $sql, string $class, array $params = []): array
