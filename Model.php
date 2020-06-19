@@ -39,7 +39,7 @@ abstract class Model
         $sql = 'INSERT INTO ' . static::TABLE . ' (' . implode(', ', $columns) . ') VALUES (' . implode(', ', $binds) . ')';
         $db = new \Db();
         $db->execute($sql, $params);
-        $this->id = $db->getLastId();
+        return $this->id = $db->getLastId();
     }
 
     public function update()
@@ -53,9 +53,17 @@ abstract class Model
             $params[':' . $key] = $value;
         }
 
-        $sql = 'UPDATE ' . static::TABLE . ' SET ' . implode(', ', $binds) . ' WHERE id = ' . $this->id;
+        $sql = 'UPDATE ' . static::TABLE . ' SET ' . implode(', ', $binds) . ' WHERE id = :id';
         $db = new \Db();
-        $db->execute($sql, $params);
+        return $db->execute($sql, $params);
+    }
+
+    public function save()
+    {
+        if (isset($this->id)) {
+            return static::findById($this->id) ? $this->update() : $this->insert();
+        }
+        return $this->insert();
     }
 
 }

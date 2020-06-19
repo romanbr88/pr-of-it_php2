@@ -13,11 +13,11 @@ class Article extends \Model
     public string $content;
     public string $date;
 
-    public static function getLastNews(): array
+    public static function getLastNews(int $count): array
     {
         $db = new \Db();
-        $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT 3';
-        return $db->query($sql, static::class);
+        $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT :count';
+        return $db->query($sql, static::class, [':count' => $count]);
     }
 
 }
