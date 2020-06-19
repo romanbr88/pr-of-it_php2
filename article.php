@@ -4,7 +4,11 @@ use Models\Article;
 
 require __DIR__ . '/autoload.php';
 
-$newsId = !isset($_GET['id']) ?: $_GET['id'];
+$newsId = $_GET['id'] ?? null;
+
+if (!isset($newsId)) {
+    header('Location: /');
+}
 
 $data = Article::findById($newsId);
 

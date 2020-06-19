@@ -5,6 +5,7 @@
 </head>
 <body>
     <p><a href="/">Главная</a></p>
+    <p><a href="/admin">Админка</a></p>
     <div>
         <h1><?= $data->title ?></h1>
         <p><?= $data->date ?></p>
