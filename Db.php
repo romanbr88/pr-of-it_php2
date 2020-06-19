@@ -9,7 +9,7 @@ class Db
 
     public function __construct()
     {
-        $config = new Config();
+        $config = Config::instance();
         $this->dbh = new \PDO(
             'pgsql:host=' . $config->data['db']['host'] . ';dbname=' . $config->data['db']['dbname'] . '',
             $config->data['db']['username'],
