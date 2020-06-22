@@ -10,16 +10,9 @@ class Config
     protected static $instance = null;
     public array $data = [];
 
-    protected function __Construct()
+    protected function __construct()
     {
-        $this->data = [
-            'db' => [
-                'host' => 'localhost',
-                'dbname' => 'profit',
-                'username' => 'postgres',
-                'passwd' => '',
-            ]
-        ];
+        $this->data = include __DIR__ . '/../config.php';
     }
 
     public static function instance()

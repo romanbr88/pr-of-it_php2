@@ -48,6 +48,8 @@ abstract class Model
         $binds = [];
         $params = [];
 
+        unset($props['id']);
+
         foreach ($props as $key => $value) {
             $binds[] = $key . ' = :' . $key;
             $params[':' . $key] = $value;
@@ -61,7 +63,7 @@ abstract class Model
     public function save()
     {
         if (isset($this->id)) {
-            return static::findById($this->id) ? $this->update() : $this->insert();
+            return $this->update();
         }
         return $this->insert();
     }

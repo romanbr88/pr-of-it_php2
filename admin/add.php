@@ -12,7 +12,7 @@ if (isset($title, $content)) {
     $article->title = $title;
     $article->content = $content;
     $article->date = date('Y-m-d H:i:s');
-    $article->insert();
+    $article->save();
     header('Location: /admin');
 }
 

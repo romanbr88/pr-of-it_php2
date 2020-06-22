@@ -15,7 +15,7 @@ if (isset($title, $content, $date)) {
     $data->title = $title;
     $data->content = $content;
     $data->date = $date;
-    $data->update();
+    $data->save();
     header('Location: /admin');
 }
 
