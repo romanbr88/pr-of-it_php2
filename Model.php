@@ -48,10 +48,10 @@ abstract class Model
         $binds = [];
         $params = [];
 
-        unset($props['id']);
-
         foreach ($props as $key => $value) {
-            $binds[] = $key . ' = :' . $key;
+            if ($key !== 'id') {
+                $binds[] = $key . ' = :' . $key;
+            }
             $params[':' . $key] = $value;
         }
 
