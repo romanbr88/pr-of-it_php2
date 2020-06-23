@@ -12,8 +12,6 @@ if (!isset($newsId)) {
 
 $data = Article::findById($newsId);
 
-var_dump($data->author_id);
-
 if ($data) {
     require __DIR__ . '/Views/Article.php';
 } else {

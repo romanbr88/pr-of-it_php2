@@ -12,11 +12,11 @@ class Article extends \Model
     public string $title;
     public string $content;
     public string $date;
-    public int $author_id;
+    public ?int $author_id;
 
     public function __get($name)
     {
-        if ($name === 'author') {
+        if ($name === 'author' && isset($this->author_id)) {
             return Author::findById($this->author_id);
         }
         return null;
