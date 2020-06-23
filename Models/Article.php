@@ -12,6 +12,15 @@ class Article extends \Model
     public string $title;
     public string $content;
     public string $date;
+    public int $author_id;
+
+    public function __get($name)
+    {
+        if ($name === 'author') {
+            return Author::findById($this->author_id);
+        }
+        return null;
+    }
 
     public static function getLastNews(int $count): array
     {

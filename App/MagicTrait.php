@@ -1,6 +1,6 @@
 <?php
 
-trait Magic
+trait MagicTrait
 {
 
     protected array $data = [];
