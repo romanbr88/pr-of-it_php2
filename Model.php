@@ -6,8 +6,16 @@ abstract class Model
 
     protected const TABLE = '';
 
+    /**
+     * @var int id записи
+     */
     public int $id;
 
+    /**
+     * Возвращает все записи из таблицы
+     *
+     * @return array Массив из объектов всех записей таблицы
+     */
     public static function findAll(): array
     {
         $db = new \Db();
@@ -15,6 +23,12 @@ abstract class Model
         return $db->query($sql, static::class);
     }
 
+    /**
+     * Возвращает одну запись из таблицы
+     *
+     * @param int $id id записи которую необходимо вернуть
+     * @return bool|mixed Объект необходимой записи, или false в случае ее отсутствия
+     */
     public static function findById(int $id)
     {
         $db = new \Db();
@@ -23,6 +37,9 @@ abstract class Model
         return empty($result) ? false : $result[0];
     }
 
+    /*
+     * Записывает данные в БД
+     */
     public function insert()
     {
         $props = get_object_vars($this);
@@ -42,6 +59,9 @@ abstract class Model
         return $this->id = $db->getLastId();
     }
 
+    /*
+     * Обновляет данные в БД
+     */
     public function update()
     {
         $props = get_object_vars($this);
@@ -60,6 +80,9 @@ abstract class Model
         return $db->execute($sql, $params);
     }
 
+    /*
+     * Записывает или обновляет данные в БД
+     */
     public function save()
     {
         if (isset($this->id)) {
@@ -68,6 +91,9 @@ abstract class Model
         return $this->insert();
     }
 
+    /*
+     * Удаляет данные из БД
+     */
     public function delete()
     {
         $sql = "DELETE FROM " . static::TABLE . ' WHERE id = :id';
