@@ -10,10 +10,9 @@ if (!isset($newsId)) {
     header('Location: /');
 }
 
-$data = Article::findById($newsId);
+$view = new View();
 
-if ($data) {
-    require __DIR__ . '/Views/Article.php';
-} else {
-    require __DIR__ . '/Views/404.php';
-}
+$view->article = Article::findById($newsId);
+
+$html = $view->render(__DIR__ . '/Views/Article.php');
+echo $html;

@@ -4,6 +4,9 @@ use Models\Article;
 
 require __DIR__ . '/../autoload.php';
 
-$data = Article::findAll();
+$view = new View();
 
-require __DIR__ . '/../Views/admin/Main.php';
+$view->articles = Article::findAll();
+
+$html = $view->render(__DIR__ . '/../Views/admin/Main.php');
+echo $html;

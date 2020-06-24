@@ -4,6 +4,9 @@ use Models\Article;
 
 require __DIR__ . '/autoload.php';
 
-$data = Article::getLastNews(3);
+$view = new View();
 
-require __DIR__ . '/Views/Main.php';
+$view->articles = Article::getLastNews(3);
+
+$html = $view->render(__DIR__ . '/Views/Main.php');
+echo $html;

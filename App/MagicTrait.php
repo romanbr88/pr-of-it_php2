@@ -1,5 +1,9 @@
 <?php
 
+
+namespace App;
+
+
 trait MagicTrait
 {
 

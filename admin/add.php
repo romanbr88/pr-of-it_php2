@@ -16,4 +16,7 @@ if (isset($title, $content)) {
     header('Location: /admin');
 }
 
-require __DIR__ . '/../Views/admin/Add.php';
+$view = new View();
+
+$html = $view->render(__DIR__ . '/../Views/admin/Add.php');
+echo $html;
