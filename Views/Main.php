@@ -8,6 +8,7 @@
 <?php foreach ($data as $datum): ?>
     <div>
         <h1><a href="/article.php?id=<?= $datum->id ?>"><?= $datum->title ?></a></h1>
+        <p><?= $datum->author->name ?></p>
         <p><?= $datum->date ?></p>
         <p><?= $datum->content ?></p>
     </div>

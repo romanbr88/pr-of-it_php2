@@ -11,6 +11,7 @@
         <th>Id</th>
         <th>Название</th>
         <th>Дата</th>
+        <th>Автор</th>
         <th>Действие</th>
     </tr>
     <?php foreach($data as $datum): ?>
@@ -18,6 +19,7 @@
         <td><?= $datum->id ?></td>
         <td><a href="/article.php?id=<?= $datum->id ?>"><?= $datum->title ?></a></td>
         <td><?= $datum->date ?></td>
+        <td><?= $datum->author->name ?></td>
         <td>
             <a href="/admin/edit.php?id=<?= $datum->id ?>">Редактировать</a><br>
             <a href="/admin/delete.php?id=<?= $datum->id ?>">Удалить</a>
