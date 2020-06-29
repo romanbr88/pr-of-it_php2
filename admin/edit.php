@@ -16,6 +16,7 @@ if (isset($title, $content, $date)) {
     $article->date = $date;
     $article->save();
     header('Location: /admin');
+    die();
 }
 
 $view = new View();

@@ -10,3 +10,4 @@ $data = Article::findById($id);
 $data->delete();
 
 header('Location: /admin');
+die();

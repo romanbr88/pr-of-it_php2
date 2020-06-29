@@ -8,6 +8,7 @@ $newsId = $_GET['id'] ?? null;
 
 if (!isset($newsId)) {
     header('Location: /');
+    die();
 }
 
 $view = new View();
