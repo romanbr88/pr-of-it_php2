@@ -30,7 +30,7 @@ class Article extends \Model
     /**
      * @var int id автора новости
      */
-    public int $author_id;
+    public ?int $author_id;
 
     public function __get($name)
     {

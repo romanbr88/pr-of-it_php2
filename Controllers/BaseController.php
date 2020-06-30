@@ -14,13 +14,13 @@ abstract class BaseController
         $this->view = new \View();
     }
 
-    public function action()
+    protected function beforeAction()
     {
         if (!$this->access()) {
             die('Доступ закрыт');
         }
 
-        $this->handle();
+        $this->action();
     }
 
     protected function access(): bool
@@ -28,11 +28,11 @@ abstract class BaseController
         return true;
     }
 
-    abstract protected function handle();
+    abstract protected function action();
 
     public function __invoke()
     {
-        $this->action();
+        $this->beforeAction();
     }
 
 }
