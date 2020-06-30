@@ -13,4 +13,5 @@ class Articles extends BaseController
         $html = $this->view->render(__DIR__ . '/../Views/Articles.php');
         echo $html;
     }
+
 }
