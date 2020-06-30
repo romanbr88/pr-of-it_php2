@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/admin/add.php">Добавить новость</a>
+                <a class="nav-link" href="/index.php?ctrl=Admin\AddArticle">Добавить новость</a>
             </li>
         </ul>
     </div>
@@ -31,12 +31,16 @@
         <?php foreach($this->articles as $article): ?>
             <tr>
                 <td><?= $article->id ?></td>
-                <td><a href="/article.php?id=<?= $article->id ?>"><?= $article->title ?></a></td>
+                <td><a href="/index.php?ctrl=Article&id=<?= $article->id ?>"><?= $article->title ?></a></td>
                 <td><?= $article->date ?></td>
-                <td><?= $article->author->name ?></td>
                 <td>
-                    <a href="/admin/edit.php?id=<?= $article->id ?>">Редактировать</a><br>
-                    <a href="/admin/delete.php?id=<?= $article->id ?>">Удалить</a>
+                    <?php if (!is_null($article->author)) :
+                        echo $article->author->name;
+                    endif; ?>
+                </td>
+                <td>
+                    <a href="/index.php?ctrl=Admin\EditArticle&id=<?= $article->id ?>">Редактировать</a><br>
+                    <a href="/index.php?ctrl=Admin\Delete&id=<?= $article->id ?>">Удалить</a>
                 </td>
             </tr>
         <?php endforeach; ?>

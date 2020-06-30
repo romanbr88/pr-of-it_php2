@@ -14,7 +14,10 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/admin">Админка</a>
+                <a class="nav-link" href="/index.php?ctrl=articles">Все новости</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/index.php?ctrl=admin\index">Админка</a>
             </li>
         </ul>
     </div>
@@ -28,7 +31,7 @@
                 <div class="col-6"><?= $article->date ?></div>
             </div>
             <p class="lead"></p>
-            <a class="btn btn-lg btn-primary" href="/article.php?id=<?= $article->id ?>" role="button">Открыть</a>
+            <a class="btn btn-lg btn-primary" href="/index.php?ctrl=article&id=<?= $article->id ?>" role="button">Открыть</a>
         </div>
     <?php endforeach; ?>
 </main>

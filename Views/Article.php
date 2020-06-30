@@ -14,7 +14,10 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/admin">Админка</a>
+                <a class="nav-link" href="/index.php?ctrl=articles">Все новости</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/index.php?ctrl=Admin\Index">Админка</a>
             </li>
         </ul>
     </div>
@@ -23,8 +26,12 @@
     <div class="jumbotron">
         <h1><?= $this->article->title ?></h1>
         <div class="row">
-            <div class="col-4"><?= $this->article->author->name ?></div>
-            <div class="col-6"><?= $this->article->date ?></div>
+            <div class="col-4">
+                <?php if (!is_null($this->article->author)) : ?>
+                    Автор: <?= $this->article->author->name ?>
+                <?php endif; ?>
+            </div>
+            <div class="col-6">Дата: <?= $this->article->date ?></div>
         </div>
         <p class="lead"><?= $this->article->content ?></p>
     </div>

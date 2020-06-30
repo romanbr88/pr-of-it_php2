@@ -17,7 +17,7 @@ class Delete extends BaseController
             $data->delete();
         }
 
-        header('Location: /admin');
+        header('Location: /index.php?ctrl=Admin\Index');
         die();
     }
 

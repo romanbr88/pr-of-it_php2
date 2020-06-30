@@ -6,31 +6,34 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Админка: Добавление новости</title>
+    <title>Главная</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <a class="navbar-brand" href="/">Главная</a>
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/index.php?ctrl=articles">Все новости</a>
+            </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin">Админка</a>
+                <a class="nav-link" href="/index.php?ctrl=admin\index">Админка</a>
             </li>
         </ul>
     </div>
 </nav>
 <main role="main" class="container">
-    <form action="/admin/add.php" method="post">
-        <div class="form-group">
-            <label for="title">Название</label>
-            <input type="text" name="title" id="title" class="form-control" required>
+    <?php foreach ($this->articles as $article): ?>
+        <div class="jumbotron">
+            <h1><?= $article->title ?></h1>
+            <div class="row">
+                <div class="col-4"><?= $article->author->name ?></div>
+                <div class="col-6"><?= $article->date ?></div>
+            </div>
+            <p class="lead"></p>
+            <a class="btn btn-lg btn-primary" href="/index.php?ctrl=article&id=<?= $article->id ?>" role="button">Открыть</a>
         </div>
-        <div class="form-group">
-            <label for="content">Текст</label>
-            <textarea name="content" id="content" class="form-control" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Добавить</button>
-    </form>
+    <?php endforeach; ?>
 </main>
 </body>
 </html>
