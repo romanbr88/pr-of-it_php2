@@ -14,10 +14,10 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/index.php?ctrl=articles">Все новости</a>
+                <a class="nav-link" href="/index.php?ctrl=Articles">Все новости</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/index.php?ctrl=Admin\Index">Админка</a>
+                <a class="nav-link" href="/admin/index.php?ctrl=Index&role=admin">Админка</a>
             </li>
         </ul>
     </div>

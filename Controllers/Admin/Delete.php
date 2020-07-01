@@ -2,7 +2,6 @@
 
 namespace Controllers\Admin;
 
-use Controllers\BaseController;
 use Models\Article;
 
 class Delete extends BaseController
@@ -17,7 +16,7 @@ class Delete extends BaseController
             $data->delete();
         }
 
-        header('Location: /index.php?ctrl=Admin\Index');
+        header('Location: /admin/index.php?ctrl=Index&role=admin');
         die();
     }
 

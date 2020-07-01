@@ -1,12 +1,14 @@
 <?php
 
-use Models\Article;
-
 require __DIR__ . '/../autoload.php';
 
-$view = new View();
+$ctrl = $_GET['ctrl'] ?? 'Index';
 
-$view->articles = Article::findAll();
+$class = '\\Controllers\\Admin\\' . $ctrl;
 
-$html = '===============================' . $view->render(__DIR__ . '/../Views/admin/Main.php');
-echo $html;
+if (!class_exists($class)) {
+    die('Страница не найдена');
+}
+
+$ctrl = new $class;
+$ctrl();

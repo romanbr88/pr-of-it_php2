@@ -14,13 +14,13 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/index.php?ctrl=Admin\Index">Админка</a>
+                <a class="nav-link" href="/admin/index.php?ctrl=Index&role=admin">Админка</a>
             </li>
         </ul>
     </div>
 </nav>
 <main role="main" class="container">
-    <form action="/index.php?ctrl=Admin\Insert" method="post">
+    <form action="/admin/index.php?ctrl=Insert&role=admin" method="post">
         <div class="form-group">
             <label for="title">Название</label>
             <input type="text" name="title" id="title" class="form-control" required>

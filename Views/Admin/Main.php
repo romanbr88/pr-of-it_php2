@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/index.php?ctrl=Admin\AddArticle">Добавить новость</a>
+                <a class="nav-link" href="/admin/index.php?ctrl=AddArticle&role=admin">Добавить новость</a>
             </li>
         </ul>
     </div>
@@ -39,8 +39,8 @@
                     endif; ?>
                 </td>
                 <td>
-                    <a href="/index.php?ctrl=Admin\EditArticle&id=<?= $article->id ?>">Редактировать</a><br>
-                    <a href="/index.php?ctrl=Admin\Delete&id=<?= $article->id ?>">Удалить</a>
+                    <a href="/admin/index.php?ctrl=EditArticle&id=<?= $article->id ?>&role=admin">Редактировать</a><br>
+                    <a href="/admin/index.php?ctrl=Delete&id=<?= $article->id ?>&role=admin">Удалить</a>
                 </td>
             </tr>
         <?php endforeach; ?>

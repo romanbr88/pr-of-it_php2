@@ -2,7 +2,6 @@
 
 namespace Controllers\Admin;
 
-use Controllers\BaseController;
 use Models\Article;
 use Models\Author;
 

@@ -2,7 +2,6 @@
 
 namespace Controllers\Admin;
 
-use Controllers\BaseController;
 use Models\Author;
 
 class AddArticle extends BaseController

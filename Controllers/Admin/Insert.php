@@ -2,7 +2,6 @@
 
 namespace Controllers\Admin;
 
-use Controllers\BaseController;
 use Models\Article;
 
 class Insert extends BaseController
@@ -23,7 +22,7 @@ class Insert extends BaseController
             $article->save();
         }
 
-        header('Location: /index.php?ctrl=Admin\Index');
+        header('Location: /admin/index.php?ctrl=Index&role=admin');
         die();
     }
 
