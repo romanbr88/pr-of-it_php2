@@ -11,18 +11,16 @@ class Insert extends BaseController
     {
         $title = $_POST['title'] ?? null;
         $content = $_POST['content'] ?? null;
-        $author_id = $_POST['author_id'] ?? null;
 
-        if (isset($title, $content, $author_id)) {
+        if (isset($title, $content)) {
             $article = new Article();
             $article->title = $title;
             $article->content = $content;
-            $article->author_id = $author_id;
             $article->date = date('Y-m-d H:i:s');
             $article->save();
         }
 
-        header('Location: /admin/index.php?ctrl=Index&role=admin');
+        header('Location: /admin');
         die();
     }
 

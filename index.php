@@ -2,9 +2,7 @@
 
 require __DIR__ . '/autoload.php';
 
-$ctrl = $_GET['ctrl'] ?? 'Index';
-
-$class = '\\Controllers\\' . $ctrl;
+$class = Router::getClass($_SERVER['REQUEST_URI']);
 
 if (!class_exists($class)) {
     die('Страница не найдена');

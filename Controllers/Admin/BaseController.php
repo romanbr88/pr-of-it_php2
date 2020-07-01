@@ -23,7 +23,7 @@ abstract class BaseController
 
     protected function access(): bool
     {
-        $role = $_GET['role'] ?? 'user';
+        $role = 'admin';
 
         if ($role === 'admin') {
             return true;

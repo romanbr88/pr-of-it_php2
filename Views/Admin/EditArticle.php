@@ -14,13 +14,13 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/admin/index.php?ctrl=Index&role=admin">Админка</a>
+                <a class="nav-link" href="/admin">Админка</a>
             </li>
         </ul>
     </div>
 </nav>
 <main role="main" class="container">
-    <form action="/admin/index.php?ctrl=Update&id=<?= $this->article->id ?>&role=admin" method="post">
+    <form action="/admin/Update/?id=<?= $this->article->id ?>" method="post">
         <div class="form-group">
             <label for="title">Название</label>
             <input type="text" name="title" id="title" value="<?= htmlspecialchars($this->article->title) ?>" class="form-control" required>
@@ -32,15 +32,6 @@
         <div class="form-group">
             <label for="content">Текст</label>
             <textarea name="content" id="content" class="form-control" required><?= htmlspecialchars($this->article->content) ?></textarea>
-        </div>
-        <div class="form-group">
-            <label for="author_id">Автор</label>
-            <select name="author_id" id="author_id" class="custom-select">
-                <option>-</option>
-                <?php foreach ($this->authors as $author) : ?>
-                    <option value="<?= $author->id ?>" <?= ($author->id !== $this->article->author_id) ?: 'selected' ?>><?= $author->name ?></option>
-                <?php endforeach; ?>
-            </select>
         </div>
         <button type="submit" class="btn btn-primary">Изменить</button>
     </form>
