@@ -1,5 +1,7 @@
 <?php
 
+use Exceptions\MultiException;
+use Exceptions\ValidationException;
 
 abstract class Model
 {
@@ -37,7 +39,7 @@ abstract class Model
         return empty($result) ? false : $result[0];
     }
 
-    /*
+    /**
      * Записывает данные в БД
      */
     public function insert()
@@ -59,7 +61,7 @@ abstract class Model
         return $this->id = $db->getLastId();
     }
 
-    /*
+    /**
      * Обновляет данные в БД
      */
     public function update()
@@ -80,7 +82,7 @@ abstract class Model
         return $db->execute($sql, $params);
     }
 
-    /*
+    /**
      * Записывает или обновляет данные в БД
      */
     public function save()
@@ -91,7 +93,7 @@ abstract class Model
         return $this->insert();
     }
 
-    /*
+    /**
      * Удаляет данные из БД
      */
     public function delete()
@@ -99,6 +101,34 @@ abstract class Model
         $sql = "DELETE FROM " . static::TABLE . ' WHERE id = :id';
         $db = new \Db();
         return $db->execute($sql, [':id' => $this->id]);
+    }
+
+    /**
+     * Заполняет свойства модели данными из массива и по возможности валидирует их
+     *
+     * @param array $data массив с данными
+     */
+    public function fill(array $data)
+    {
+        $errors = new MultiException();
+
+        foreach ($data as $key => $val) {
+            $validateMethod = 'validate' . ucfirst($key);
+
+            if (method_exists($this, $validateMethod)) {
+                try {
+                    $this->$validateMethod($val);
+                } catch (Throwable $e) {
+                    $errors->addError(new ValidationException($e->getMessage()));
+                }
+            }
+
+            $this->$key = $val;
+        }
+
+        if (count($errors) > 0) {
+            throw $errors;
+        }
     }
 
 }

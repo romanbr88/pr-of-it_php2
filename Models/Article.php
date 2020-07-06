@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Models;
-
 
 class Article extends \Model
 {
@@ -51,6 +49,33 @@ class Article extends \Model
         $db = new \Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT :count';
         return $db->query($sql, static::class, [':count' => $count]);
+    }
+
+    protected function validateTitle($title)
+    {
+        if (empty($title)) {
+            throw new \Exception('Заголовок новости необходимо заполнить');
+        }
+    }
+
+    protected function validateContent($content)
+    {
+        if (empty($content)) {
+            throw new \Exception('Текст новости необходимо заполнить');
+        }
+    }
+
+    protected function validateDate($date)
+    {
+        if (empty($date)) {
+            throw new \Exception('Дату необходимо заполнить');
+        }
+
+        $validDate = \DateTime::createFromFormat('Y-m-d G:i:s', $date);
+
+        if (!$validDate) {
+            throw new \Exception('Неверный формат даты');
+        }
     }
 
 }

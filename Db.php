@@ -1,7 +1,7 @@
 <?php
 
 use App\Config;
-use Exceptions\DbExceptions;
+use Exceptions\DbException;
 
 class Db
 {
@@ -18,7 +18,7 @@ class Db
                 $config->data['db']['passwd']
             );
         } catch (Throwable $ex) {
-            throw new DbExceptions('Ошибка соединения с БД: ' . $ex->getMessage());
+            throw new DbException('Ошибка соединения с БД: ' . $ex->getMessage());
         }
     }
 
@@ -27,7 +27,7 @@ class Db
         $sth = $this->dbh->prepare($sql);
         $res = $sth->execute($params);
         if (!$res) {
-            throw new DbExceptions('Ошибка выполнения запроса: ' . $sql);
+            throw new DbException('Ошибка выполнения запроса: ' . $sql);
         }
         return $sth->fetchAll(PDO::FETCH_CLASS, $class);
     }
@@ -37,7 +37,7 @@ class Db
         $sth = $this->dbh->prepare($sql);
         $res = $sth->execute($params);
         if (!$res) {
-            throw new DbExceptions('Ошибка выполнения запроса: ' . $sql);
+            throw new DbException('Ошибка выполнения запроса: ' . $sql);
         }
         return $res;
     }

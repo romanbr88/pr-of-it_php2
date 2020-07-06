@@ -27,7 +27,11 @@
         <div class="jumbotron">
             <h1><?= $article->title ?></h1>
             <div class="row">
-                <div class="col-4"><?= $article->author->name ?></div>
+                <div class="col-4">
+                    <?php if (!is_null($article->author)) : ?>
+                        Автор: <?= $article->author->name ?>
+                    <?php endif; ?>
+                </div>
                 <div class="col-6"><?= $article->date ?></div>
             </div>
             <p class="lead"></p>

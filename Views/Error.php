@@ -23,7 +23,11 @@
     </div>
 </nav>
 <main role="main" class="container">
-    <div class="alert alert-danger"><?= $this->errorText ?></div>
+    <?php if (count($this)) : ?>
+    <?php foreach ($this->errors as $error) : ?>
+    <div class="alert alert-danger"><?= $error ?></div>
+    <?php endforeach; ?>
+    <?php endif; ?>
 </main>
 </body>
 </html>

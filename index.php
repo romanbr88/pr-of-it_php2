@@ -1,5 +1,9 @@
 <?php
 
+use Controllers\Error;
+use Exceptions\DbException;
+use Exceptions\Http404Exception;
+
 require __DIR__ . '/autoload.php';
 
 $class = Router::getClass($_SERVER['REQUEST_URI']);
@@ -11,14 +15,14 @@ if (!class_exists($class)) {
 try {
     $ctrl = new $class;
     $ctrl();
-} catch (\Exceptions\DbExceptions $ex) {
-    $ctrl = new \Controllers\Error();
-    $ctrl->setErrorText($ex->getMessage());
+} catch (DbException $ex) {
+    $ctrl = new Error();
+    $ctrl->addError($ex->getMessage());
     $ctrl();
-} catch (\Exceptions\Http404Exception $ex) {
+} catch (Http404Exception $ex) {
     http_response_code(404);
-    $ctrl = new \Controllers\Error();
-    $ctrl->setErrorText($ex->getMessage());
+    $ctrl = new Error();
+    $ctrl->addError($ex->getMessage());
     $ctrl();
 }
 

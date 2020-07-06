@@ -2,6 +2,7 @@
 
 namespace Controllers\Admin;
 
+use Exceptions\MultiException;
 use Models\Article;
 
 class Update extends BaseController
@@ -16,9 +17,11 @@ class Update extends BaseController
 
         if (isset($id, $title, $content, $date)) {
             $article = Article::findById($id);
-            $article->title = $title;
-            $article->content = $content;
-            $article->date = $date;
+            $article->fill([
+                'title' => $title,
+                'content' => $content,
+                'date' => $date,
+            ]);
             $article->save();
         }
 

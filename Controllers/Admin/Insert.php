@@ -2,6 +2,7 @@
 
 namespace Controllers\Admin;
 
+use Exceptions\MultiException;
 use Models\Article;
 
 class Insert extends BaseController
@@ -14,9 +15,11 @@ class Insert extends BaseController
 
         if (isset($title, $content)) {
             $article = new Article();
-            $article->title = $title;
-            $article->content = $content;
-            $article->date = date('Y-m-d H:i:s');
+            $article->fill([
+                'title' => $title,
+                'content' => $content,
+                'date' => date('Y-m-d H:i:s'),
+            ]);
             $article->save();
         }
 

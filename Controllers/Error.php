@@ -2,20 +2,25 @@
 
 namespace Controllers;
 
-class Error extends BaseController
+class Error extends BaseController implements \Countable
 {
-    protected string $errorText;
+    protected array $errors = [];
 
-    public function setErrorText(string $errorText)
+    public function addError(string $errorText)
     {
-        $this->errorText = $errorText;
+        $this->errors[] = $errorText;
     }
 
     protected function action()
     {
-        $this->view->errorText = $this->errorText;
+        $this->view->errors = $this->errors;
         $html = $this->view->render(__DIR__ . '/../Views/Error.php');
         echo $html;
+    }
+
+    public function count()
+    {
+        return count($this->errors);
     }
 
 }

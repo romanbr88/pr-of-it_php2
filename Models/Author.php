@@ -17,4 +17,11 @@ class Author extends \Model
      */
     public string $name;
 
+    protected function validateName($name)
+    {
+        if (empty($name)) {
+            throw new \Exception('Имя автора необходимо заполнить');
+        }
+    }
+
 }
