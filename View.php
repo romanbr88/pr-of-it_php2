@@ -1,6 +1,7 @@
 <?php
 
 use App\MagicTrait;
+use SebastianBergmann\Timer\ResourceUsageFormatter;
 
 class View implements Countable, Iterator
 {
@@ -13,6 +14,11 @@ class View implements Countable, Iterator
         $contents = ob_get_contents();
         ob_end_clean();
         return $contents;
+    }
+
+    public function getTimer(): string
+    {
+        return (new ResourceUsageFormatter)->resourceUsageSinceStartOfRequest();
     }
 
     public function count()

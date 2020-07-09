@@ -6,6 +6,7 @@ use Exceptions\Http404Exception;
 use App\Logger;
 
 require __DIR__ . '/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 $class = Router::getClass($_SERVER['REQUEST_URI']);
 
