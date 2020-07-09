@@ -4,7 +4,6 @@ namespace Models;
 
 class Article extends \Model
 {
-
     /**
      * Имя таблицы в БД
      */
@@ -77,5 +76,4 @@ class Article extends \Model
             throw new \Exception('Неверный формат даты');
         }
     }
-
 }

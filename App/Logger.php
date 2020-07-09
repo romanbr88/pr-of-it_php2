@@ -4,7 +4,6 @@ namespace App;
 
 class Logger
 {
-
     protected string $logfile;
     protected array $data = [];
 
@@ -27,5 +26,4 @@ class Logger
             }
         }
     }
-
 }

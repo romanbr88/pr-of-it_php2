@@ -1,11 +1,9 @@
 <?php
 
-
 use App\MagicTrait;
 
 class View implements Countable, Iterator
 {
-
     use MagicTrait;
 
     public function render($template)
@@ -46,5 +44,4 @@ class View implements Countable, Iterator
     {
         reset($this->data);
     }
-
 }

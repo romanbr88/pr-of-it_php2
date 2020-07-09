@@ -6,7 +6,6 @@ use Exceptions\Http404Exception;
 
 class Article extends BaseController
 {
-
     protected function action()
     {
         $newsId = $_GET['id'] ?? null;
@@ -25,5 +24,4 @@ class Article extends BaseController
         $html = $this->view->render(__DIR__ . '/../Views/Article.php');
         echo $html;
     }
-
 }

@@ -1,12 +1,9 @@
 <?php
 
-
 namespace Models;
-
 
 class Author extends \Model
 {
-
     /**
      * Имя таблицы в БД
      */
@@ -23,5 +20,4 @@ class Author extends \Model
             throw new \Exception('Имя автора необходимо заполнить');
         }
     }
-
 }

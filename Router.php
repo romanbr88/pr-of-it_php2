@@ -2,7 +2,6 @@
 
 abstract class Router
 {
-
     public static function getClass(string $uri): string
     {
         $params = array_map('ucfirst', explode('/', trim($uri, '/')));
@@ -24,5 +23,4 @@ abstract class Router
 
         return $ctrl;
     }
-
 }

@@ -30,4 +30,3 @@ try {
     $ctrl->addError($ex->getMessage());
     $ctrl();
 }
-

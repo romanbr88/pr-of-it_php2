@@ -2,12 +2,10 @@
 
 namespace Controllers\Admin;
 
-use Exceptions\MultiException;
 use Models\Article;
 
 class Update extends BaseController
 {
-
     protected function action()
     {
         $id = $_GET['id'] ?? null;
@@ -28,5 +26,4 @@ class Update extends BaseController
         header('Location: /admin');
         die();
     }
-
 }

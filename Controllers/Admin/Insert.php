@@ -2,12 +2,10 @@
 
 namespace Controllers\Admin;
 
-use Exceptions\MultiException;
 use Models\Article;
 
 class Insert extends BaseController
 {
-
     protected function action()
     {
         $title = $_POST['title'] ?? null;
@@ -26,5 +24,4 @@ class Insert extends BaseController
         header('Location: /admin');
         die();
     }
-
 }

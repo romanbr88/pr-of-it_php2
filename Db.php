@@ -5,7 +5,6 @@ use Exceptions\DbException;
 
 class Db
 {
-
     protected PDO $dbh;
 
     public function __construct()
@@ -46,5 +45,4 @@ class Db
     {
         return $this->dbh->lastInsertId();
     }
-
 }

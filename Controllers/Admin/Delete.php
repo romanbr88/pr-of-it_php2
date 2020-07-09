@@ -6,7 +6,6 @@ use Models\Article;
 
 class Delete extends BaseController
 {
-
     protected function action()
     {
         $id = $_GET['id'] ?? null;
@@ -19,5 +18,4 @@ class Delete extends BaseController
         header('Location: /admin');
         die();
     }
-
 }

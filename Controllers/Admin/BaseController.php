@@ -4,7 +4,6 @@ namespace Controllers\Admin;
 
 abstract class BaseController
 {
-
     protected \View $view;
 
     public function __construct()
@@ -38,5 +37,4 @@ abstract class BaseController
     {
         $this->beforeAction();
     }
-
 }

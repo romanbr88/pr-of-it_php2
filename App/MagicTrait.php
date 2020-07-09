@@ -1,12 +1,9 @@
 <?php
 
-
 namespace App;
-
 
 trait MagicTrait
 {
-
     protected array $data = [];
 
     public function __set($name, $value)
@@ -23,5 +20,4 @@ trait MagicTrait
     {
         return isset($this->data[$name]);
     }
-
 }

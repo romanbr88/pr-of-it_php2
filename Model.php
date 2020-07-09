@@ -5,7 +5,6 @@ use Exceptions\ValidationException;
 
 abstract class Model
 {
-
     protected const TABLE = '';
 
     /**
@@ -130,5 +129,4 @@ abstract class Model
             throw $errors;
         }
     }
-
 }

@@ -4,7 +4,6 @@ namespace Exceptions;
 
 class MultiException extends \Exception implements \Countable
 {
-
     protected array $errors = [];
 
     public function addError(\Exception $e)
@@ -21,5 +20,4 @@ class MultiException extends \Exception implements \Countable
     {
         return count($this->errors);
     }
-
 }

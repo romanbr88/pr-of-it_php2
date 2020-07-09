@@ -6,7 +6,6 @@ use Models\Article;
 
 class EditArticle extends BaseController
 {
-
     protected function action()
     {
         $id = $_GET['id'] ?? null;
@@ -14,5 +13,4 @@ class EditArticle extends BaseController
         $html = $this->view->render(__DIR__ . '/../../Views/Admin/EditArticle.php');
         echo $html;
     }
-
 }

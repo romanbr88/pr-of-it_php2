@@ -4,7 +4,6 @@ namespace App;
 
 class LogItem
 {
-
     protected string $date;
     protected string $source;
     protected string $message;
@@ -20,5 +19,4 @@ class LogItem
     {
         return $this->date . ' | ' . $this->source . ' | ' . $this->message . PHP_EOL;
     }
-
 }

@@ -22,5 +22,4 @@ class Error extends BaseController implements \Countable
     {
         return count($this->errors);
     }
-
 }
