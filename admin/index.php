@@ -20,13 +20,9 @@ try {
     $ctrl();
 } catch (DbException $ex) {
     $log->append(date('Y-m-d H:i:s'), $ex->getFile(), $ex->getMessage())->save();
-    $ctrl = new Error();
-    $ctrl->addError($ex->getMessage());
+    $ctrl = new Error($ex);
     $ctrl();
 } catch (MultiException $ex) {
-    $ctrl = new Error();
-    foreach ($ex->getErrors() as $error) {
-        $ctrl->addError($error->getMessage());
-    }
+    $ctrl = new Error($ex);
     $ctrl();
 }
