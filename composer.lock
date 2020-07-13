@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0f6ad88921d8b6892b0239db3153482",
+    "content-hash": "8e588f5a4e4b5f2a615dadf027b5302f",
     "packages": [
         {
             "name": "phpunit/php-timer",
@@ -54,6 +54,36 @@
                 "timer"
             ],
             "time": "2020-06-26T11:58:13+00:00"
+        },
+        {
+            "name": "romanbr/multiexception",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/romanbr88/MultiException.git",
+                "reference": "a0cb4f346607234e55c877a89b7c2c28ef002c8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/romanbr88/MultiException/zipball/a0cb4f346607234e55c877a89b7c2c28ef002c8a",
+                "reference": "a0cb4f346607234e55c877a89b7c2c28ef002c8a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RomanBR\\MultiException\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Implementation of the multi exception pattern",
+            "time": "2020-07-13T15:43:06+00:00"
         }
     ],
     "packages-dev": [],

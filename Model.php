@@ -1,7 +1,7 @@
 <?php
 
-use Exceptions\MultiException;
 use Exceptions\ValidationException;
+use RomanBR\MultiException\MultiException;
 
 abstract class Model
 {

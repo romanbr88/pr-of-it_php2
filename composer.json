@@ -1,5 +1,6 @@
 {
     "require": {
-        "phpunit/php-timer": "^5.0"
+        "phpunit/php-timer": "^5.0",
+        "romanbr/multiexception": "^1.0"
     }
 }

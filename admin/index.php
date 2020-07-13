@@ -2,7 +2,7 @@
 
 use Controllers\Error;
 use Exceptions\DbException;
-use Exceptions\MultiException;
+use RomanBR\MultiException\MultiException;
 use App\Logger;
 
 require __DIR__ . '/../autoload.php';
