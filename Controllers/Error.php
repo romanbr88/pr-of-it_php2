@@ -2,13 +2,14 @@
 
 namespace Controllers;
 
-class Error extends BaseController implements \Countable
+class Error extends BaseController
 {
-    protected array $errors = [];
+    protected \Throwable $errors;
 
-    public function addError(string $errorText)
+    public function __construct(\Throwable $ex)
     {
-        $this->errors[] = $errorText;
+        parent::__construct();
+        $this->errors = $ex;
     }
 
     protected function action()
@@ -16,10 +17,5 @@ class Error extends BaseController implements \Countable
         $this->view->errors = $this->errors;
         $html = $this->view->render(__DIR__ . '/../Views/Error.php');
         echo $html;
-    }
-
-    public function count()
-    {
-        return count($this->errors);
     }
 }
