@@ -17,11 +17,11 @@ abstract class Model
      *
      * @return array Массив из объектов всех записей таблицы
      */
-    public static function findAll(): array
+    public static function findAll(): iterable
     {
         $db = new \Db();
         $sql = 'SELECT * FROM ' . static::TABLE;
-        return $db->query($sql, static::class);
+        return $db->queryEach($sql, static::class);
     }
 
     /**

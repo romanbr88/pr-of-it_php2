@@ -43,11 +43,11 @@ class Article extends \Model
      * @param int $count количество возвращаемых новостей
      * @return array массив с новостями
      */
-    public static function getLastNews(int $count): array
+    public static function getLastNews(int $count): iterable
     {
         $db = new \Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT :count';
-        return $db->query($sql, static::class, [':count' => $count]);
+        return $db->queryEach($sql, static::class, [':count' => $count]);
     }
 
     protected function validateTitle($title)
