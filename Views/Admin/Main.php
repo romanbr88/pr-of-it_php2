@@ -20,31 +20,7 @@
     </div>
 </nav>
 <main role="main" class="container">
-    <table class="table table-hover">
-        <tr>
-            <th>Id</th>
-            <th>Название</th>
-            <th>Дата</th>
-            <th>Автор</th>
-            <th>Действие</th>
-        </tr>
-        <?php foreach($this->articles as $article): ?>
-            <tr>
-                <td><?= $article->id ?></td>
-                <td><a href="/article/?id=<?= $article->id ?>"><?= $article->title ?></a></td>
-                <td><?= $article->date ?></td>
-                <td>
-                    <?php if (!is_null($article->author)) :
-                        echo $article->author->name;
-                    endif; ?>
-                </td>
-                <td>
-                    <a href="/admin/EditArticle/?id=<?= $article->id ?>">Редактировать</a><br>
-                    <a href="/admin/Delete/?id=<?= $article->id ?>">Удалить</a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <?= $this->dataTable ?>
 </main>
 <footer class="footer mt-auto py-3">
     <div class="container">
